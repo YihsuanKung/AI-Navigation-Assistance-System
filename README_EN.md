@@ -54,7 +54,7 @@ Documents and deliverables related to this project:
 
 ## 🖥️ System Architecture
 
-![Robot](./docs/NAS_Robot.png)
+![Robot](./docs/NAS_Architecture.png)
 
 Architecture includes:
 
