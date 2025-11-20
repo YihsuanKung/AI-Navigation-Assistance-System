@@ -57,14 +57,11 @@ AI 導覽輔助系統
 ### Robot 運行畫面   
 ![Run Environment](./docs/NAS_RunEnvironment.png)
 
-### SLAM 建圖  
-![SLAM Map](./docs/NAS_SlamMap.png)
-
 ### YOLO 訓練損失軌跡圖
 ![YOLO Training Loss](./docs/NAS_TrainingLoss.png)
 
 ### YOLO 辨識結果
-![YOLO Dectection](./docs/NAS_YoloDectection.png)
+![YOLO Detection](./docs/NAS_YoloDetection.png)
 
 ### GUI 介面
 ![GUI](./docs/NAS_GUI.png)
