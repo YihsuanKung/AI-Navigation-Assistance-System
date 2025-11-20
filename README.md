@@ -53,7 +53,7 @@ AI 導覽輔助系統
 
 ## 🖥️ 系統架構（System Architecture）
 
-![Robot](./docs/NAS_Robot.png)
+![Robot](./docs/NAS_Architecture.png)
 
 架構包含：
 
