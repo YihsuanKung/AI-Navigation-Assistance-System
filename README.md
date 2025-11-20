@@ -54,14 +54,20 @@ AI 導覽輔助系統
 
 以下為系統運作的部分成果：
 
+### Robot 運行畫面   
+![Run Environment](./docs/NAS_RunEnvironment.png)
+
 ### SLAM 建圖  
 ![SLAM Map](./docs/NAS_SlamMap.png)
 
 ### YOLO 訓練損失軌跡圖
-![YOLO Detection](./docs/NAS_TrainingLoss.png)
+![YOLO Training Loss](./docs/NAS_TrainingLoss.png)
+
+### YOLO 辨識結果
+![YOLO Dectection](./docs/NAS_YoloDectection.png)
 
 ### GUI 介面
-![Robot](./docs/NAS_GUI.png)
+![GUI](./docs/NAS_GUI.png)
 
 ---
 
@@ -93,8 +99,3 @@ AI 導覽輔助系統
 - 顯示 YOLO 偵測結果  
 - 顯示即時影像與系統狀態  
 - 支援手動與自動模式切換
-
----
-
-## 📁 專案架構（Repository Structure）
-
