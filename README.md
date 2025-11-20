@@ -5,6 +5,22 @@ AI 導覽輔助系統
 
 ---
 
+🎥 Demo 影片: https://www.youtube.com/watch?v=_xXVmry_xc8  
+🏆 2024 全國大專校院智慧創新暨跨領域整合創作競賽 - 榮獲「值得注目獎」
+
+---
+
+## 📦 下載專區（Downloads）
+
+提供專案相關的文件、海報與技術報告，方便主管快速查看：
+
+| 檔案名稱 | 說明 | 下載 |
+|---------|------|------|
+| **NAS_Documentation.pdf** | 專題完整文件（系統架構、流程、技術內容） | [下載](./docs/NAS_Documentation.pdf) |
+| **NAS_Poster.pdf** | 專題海報（展示版） | [下載](./docs/NAS_Poster.pdf) |
+
+---
+
 ## 📌 專案特色（Key Features）
 
 ### 🔹 LiDAR SLAM 建圖  
