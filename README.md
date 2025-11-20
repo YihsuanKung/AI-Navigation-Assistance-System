@@ -1,37 +1,100 @@
-# AI 導覽輔助系統  
-智慧校園自主導航車（SLAM × YOLOv4 × 語音控制 × 嵌入式整合）
+# AI Navigation Assistance System  
+AI 導覽輔助系統
 
-本專題開發一套能在校園中自動導航的導覽車系統，結合 LiDAR SLAM、YOLOv4 建築物辨識、語音操作與跨平台整合技術，目標是提升校園導覽效率並減少人力依賴。
-
-🎥 Demo 影片：https://www.youtube.com/watch?v=_xXVmry_xc8  
-🏆 2024 智慧創新競賽 — *值得注目獎*
+本專題以「自動化導覽車」為核心，整合 SLAM 建圖、路徑規劃、YOLO 建築辨識、語音導覽與跨平台控制，實現能在校園中自主移動、辨識建築並提供導覽資訊的智慧型導航系統。
 
 ---
 
-## 📌 專題介紹
-此系統能夠在校園環境中自動完成定位、地圖建構、路徑規劃及避障，並透過影像辨識提供建築物資訊。使用者可透過語音輸入目的地，導覽車會自動規劃路徑並朝指定位置移動。
+## 📌 專案特色（Key Features）
+
+### 🔹 LiDAR SLAM 建圖  
+- 使用 **Hector SLAM**（ROS Noetic）
+- 自行調整解析度、更新頻率、匹配參數
+- 解決漂移與定位不穩等問題，使地圖可穩定用於導航
+
+### 🔹 路徑規劃與避障  
+- 使用 **D\* Lite** 作全局路徑規劃
+- 使用 **DWA** 作局部避障
+- 針對校園環境調整速度、安全距離、權重
+- 改善轉彎不足、抖動、邊緣避障不靈敏等問題
+
+### 🔹 YOLOv4 建築辨識
+- 自行蒐集並標註 **4500+ 校園建築照片**
+- 使用 **CSPDarknet53** 進行訓練
+- 模型整合至樹梅派端，讓導航車能辨識校園建築物
+
+### 🔹 跨平台整合（Raspberry Pi + Arduino + MATLAB）
+- Pi 負責 SLAM / YOLO / 系統控制
+- Arduino 控制底盤驅動、馬達、速度
+- MATLAB GUI 進行監控（地圖、影像、偵測結果）
+- 打通 Pi → PC → Arduino 的資料流與操作流程
+
+### 🔹 自主移動與語音導覽
+- 自主導航至目標建築
+- 到達後觸發語音播放導覽資訊
 
 ---
 
-## 🧭 系統架構
-- **LiDAR + SLAM**：使用 RPLIDAR A1 搭配 ROS hector_mapping 進行即時建圖與定位  
-- **導航與避障**：採用 D\* Lite 進行全局路徑規劃，DWA 做動態避障  
-- **影像辨識**：YOLOv4 模型辨識校園建築  
-- **語音控制**：透過語音輸入與導覽車互動  
-- **跨平台整合**：Raspberry Pi、Arduino、MATLAB GUI、5G/Wi-Fi 傳輸  
+## 🖥️ 系統架構（System Architecture）
+
+![Robot](./docs/NAS_Robot.png)
+
+架構包含：
+
+- 感測層：RPLIDAR、Camera  
+- 感知層：SLAM / YOLO  
+- 規劃層：D\* Lite + DWA  
+- 控制層：Arduino 馬達控制  
+- 介面層：MATLAB GUI  
+- 導覽層：語音播放與建築說明  
 
 ---
 
-## 🔧 技術亮點
-- LiDAR-based SLAM（hector_mapping）  
-- YOLOv4 自建資料集（4500+ 張校園照片）  
-- D\* Lite 全局規劃 / DWA 區域避障  
-- MATLAB GUI 監控系統  
-- Raspberry Pi + Arduino 馬達控制  
+## 🎥 成果展示（Demo & Output）
+
+以下為系統運作的部分成果：
+
+### SLAM 建圖  
+![SLAM Map](./docs/NAS_SlamMap.png)
+
+### YOLO 訓練損失軌跡圖
+![YOLO Detection](./docs/NAS_TrainingLoss.png)
+
+### GUI 介面
+![Robot](./docs/NAS_GUI.png)
 
 ---
 
-## 🌟 系統成果 
-- 能辨識多座校園建築
-- 支援語音輸入目的地
-- 即時顯示地圖、路徑、辨識結果與影像串流
+## 🚀 技術內容（Technical Details）
+
+### 1. SLAM  
+- Hector mapping（無需 odometry）  
+- 針對校園室內外複合環境調整匹配敏感度  
+- 解決漂移、重定位反應慢等問題
+
+### 2. 路徑規劃 + 避障  
+- D\* Lite：動態地圖下可重規劃  
+- DWA：依障礙物距離、速度、方向，計算最佳控制量  
+- 自行調校避障參數，使其更符合實地行走需求
+
+### 3. YOLOv4  
+- 自建 4500+ 建築 dataset（教學大樓、宿舍、學餐等）  
+- 使用 LabelImg 完成 bounding box 標註  
+- CSPDarknet53 backbone  
+- 訓練至 loss 收斂並完成部署
+
+### 4. Raspberry Pi + Arduino  
+- UART 通訊  
+- Pi：SLAM, YOLO, 控制指令  
+- Arduino：PWM 控速、方向控制、驅動 L298N
+
+### 5. MATLAB GUI  
+- 顯示 SLAM 地圖 + 車體位置  
+- 顯示 YOLO 偵測結果  
+- 顯示即時影像與系統狀態  
+- 支援手動與自動模式切換
+
+---
+
+## 📁 專案架構（Repository Structure）
+
