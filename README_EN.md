@@ -32,8 +32,7 @@ The vehicle autonomously performs localization, map construction, path planning,
 
 ---
 
-## 🌟 Results
-- Stable autonomous navigation in campus environments  
-- Reliable building recognition  
+## 🌟 Results 
+- Reliable building recognition
+- Voice-controlled destination input
 - Real-time visualization of map, path, detections, and video feed  
-- Voice-controlled destination input  
